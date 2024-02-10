@@ -1,5 +1,7 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,9 +15,11 @@ public class NewExample {
 		
 		WebDriver driver=new FirefoxDriver();
 		driver.get("https://www.amazon.in/log-in/s?k=log+in");
-		WebElement tags = driver.findElement(By.tagName("a"));
-		System.out.println(tags);
-		
+		List<WebElement> tags = driver.findElements(By.tagName("a"));
+		for(WebElement ele:tags) {
+			System.out.println(ele.getText());
+		}
+		driver.close();
 	}
 
 }
