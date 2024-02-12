@@ -6,7 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class TmobileCheckBoxPage {
+public class MobileAndBandPage {
+
     @FindBy(xpath="//label[@for='mat-checkbox-10-input']//span[@class='mat-checkbox-inner-container']")
     private WebElement apple;
     
@@ -34,25 +35,25 @@ public class TmobileCheckBoxPage {
     @FindBy(xpath="//label[@for='mat-checkbox-18-input']//span[@class='mat-checkbox-inner-container']")
     private WebElement tcl;
     
-    @FindBy()
-    private WebElement brand;
+    @FindBy(xpath="//mat-panel-title[@data-flk-success='atNodeInserted1']//legend[normalize-space()='Deals']")
+    private WebElement deals;
     
-    @FindBy()
+    @FindBy(xpath="//label[@for='mat-checkbox-19-input']//span[@class='mat-checkbox-inner-container']")
     private WebElement trade_g;
     
-    @FindBy()
+    @FindBy(xpath="//label[@for='mat-checkbox-20-input']/span[@class='mat-checkbox-inner-container']")
     private WebElement free;
     
-    @FindBy()
+    @FindBy(xpath="//label[@for='mat-checkbox-21-input']//span[@class='mat-checkbox-inner-container']")
     private WebElement newBrand;
     
-    @FindBy()
+    @FindBy(xpath="//label[@for='mat-checkbox-22-input']//span[@class='mat-checkbox-inner-container']")
     private WebElement special_offer;
     
-    @FindBy()
+    @FindBy(xpath="//label[@for='mat-checkbox-23-input']//span[@class='mat-checkbox-inner-container']")
     private WebElement zero_down;
 
-    public TmobileCheckBoxPage(WebDriver driver) {
+    public MobileAndBandPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
     
@@ -93,11 +94,7 @@ public class TmobileCheckBoxPage {
 	}
 	
 	public WebElement getBrand() {
-		return brand;
-	}
-
-	public void setBrand(WebElement brand) {
-		this.brand = brand;
+		return deals;
 	}
 
 	public WebElement getTrade_g() {
@@ -140,7 +137,7 @@ public class TmobileCheckBoxPage {
 		this.zero_down = zero_down;
 	}
 
-	public void selectCheckBoxes(String... checkBoxNames) {
+	public void selectCheckBoxes(String section,String... checkBoxNames) {
         if (checkBoxNames.length == 1 && checkBoxNames[0].equals("all")) {
             selectAllCheckBoxes();
         } else {
@@ -148,7 +145,37 @@ public class TmobileCheckBoxPage {
                 selectCheckBox(checkBoxName);
             }
         }
+        
+        //Check whether deals is visible or not
+        if(trade_g.isDisplayed()) {
+        	System.out.println("Deals displayed");
+        }
+        else {
+        	System.out.println("Clicking of deals");
+        	deals.click();
+        }
+        System.out.println("Click on web element");
+        WebElement element=dealsCheckBox(section);
+        element.click();
+        
     }
+	
+	public WebElement dealsCheckBox(String dealName) {
+        switch (dealName) {
+        case "trade_5G":
+            return trade_g;
+        case "free":
+        	return free;
+        case "newBrand":
+        	return newBrand;
+        case "special_offer":
+        	return special_offer;
+        case "zero_down":
+        	return zero_down;
+        default:
+            throw new IllegalArgumentException("Invalid checkbox name: " + dealName);
+        }		
+	}
 
     public void selectCheckBox(String checkBoxName) {
         WebElement checkbox = getCheckbox(checkBoxName);
@@ -176,7 +203,7 @@ public class TmobileCheckBoxPage {
             case "apple":
                 return apple;
             case "google":
-                return google; // Corrected to "google"
+                return google; 
             case "motorola":
                 return motorola;
             case "nokia":
@@ -196,4 +223,5 @@ public class TmobileCheckBoxPage {
         }
     }
 }
+
 

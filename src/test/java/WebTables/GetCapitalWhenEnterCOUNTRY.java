@@ -20,8 +20,12 @@ public class GetCapitalWhenEnterCOUNTRY
 		String country="India";
 
 		
-		String tname = driver.findElement(By.xpath("//table[@id='countries']/tbody/tr[*]/td[*]/strong[normalize-space()='"+country+"']/following::td[1]")).getText();
-		System.out.println(tname);
+		String capital = driver.findElement(By.xpath("//table[@id='countries']/tbody/tr[*]/td[*]/strong[normalize-space()='"+country+"']/following::td[1]")).getText();
+		String currency = driver.findElement(By.xpath("//table[@id='countries']/tbody/tr[*]/td[*]//strong[text()='"+country+"']/following::td[2]")).getText();
+		String language = driver.findElement(By.xpath("//table/tbody/tr[*]/td[2]/strong[text()='"+country+"']/following::td[3]")).getText();
+		
+		System.out.println("Capital : "+capital +"\nCurrency : "+currency
+				+"\nLanguage"+language);
 		
 		
 		driver.close();
