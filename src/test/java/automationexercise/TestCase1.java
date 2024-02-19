@@ -114,6 +114,7 @@ public class TestCase1
 		WebElement automationText = driver.findElement(By.xpath("//div[@class='item active']//span[1]"));
 		Assert.assertTrue(automationText.isDisplayed());
 		System.out.println(automationText.getText()+" Is diapled");
+		System.out.println("Test case 1 completed");
 		
 		driver.close();
 	}
