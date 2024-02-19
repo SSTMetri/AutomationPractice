@@ -111,6 +111,9 @@ public class TestCase1
 		Assert.assertTrue(accDeleted.isDisplayed());
 		System.out.println("Account deletion successful");
 		driver.findElement(By.xpath("//a[normalize-space()='Continue']")).click();
+		WebElement automationText = driver.findElement(By.xpath("//div[@class='item active']//span[1]"));
+		Assert.assertTrue(automationText.isDisplayed());
+		System.out.println(automationText.getText()+" Is diapled");
 		
 		driver.close();
 	}
