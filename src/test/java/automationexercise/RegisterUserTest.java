@@ -13,7 +13,7 @@ import genericUtilityNew.JavaUtility;
 import genericUtilityNew.WebDriverUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase1 
+public class RegisterUserTest
 {
 	@Test
 	public void testCase1() {
@@ -44,8 +44,9 @@ public class TestCase1
 		
 		
 //		3. Verify that home page is visible successfully
-		boolean homeIcon=driver.findElement(By.xpath("//i[@class='fa fa-home']")).isDisplayed();
-		System.out.println(homeIcon +" is diaplayed");
+		WebElement homeIcon=driver.findElement(By.xpath("//i[@class='fa fa-home']"));
+		Assert.assertTrue(homeIcon.isDisplayed());
+		System.out.println(homeIcon.getText() +" is diaplayed");
 		
 //		4. Click on 'Signup / Login' button
 		driver.findElement(By.xpath("//a[@href='/login']")).click();
