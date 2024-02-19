@@ -40,7 +40,9 @@ public class CheckBoxDEALSandBRANDS
 //        checkBoxManager.selectCheckBoxes("newBrand","nokia");
 //        checkBoxManager.selectCheckBoxes("special_offer","nokia");
 //        checkBoxManager.selectCheckBoxes("zero_down","nokia");
+        
 		driver.close();
+
 	}
 
 }
