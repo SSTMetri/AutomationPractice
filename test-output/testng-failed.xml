@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="automationexercise.LogoutUserTest">
+      <class name="cogmento.Smoke">
         <methods>
-          <include name="testCase4"/>
+          <include name="test"/>
         </methods>
-      </class> <!-- automationexercise.LogoutUserTest -->
+      </class> <!-- cogmento.Smoke -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
