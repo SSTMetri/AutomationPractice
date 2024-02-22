@@ -24,7 +24,7 @@ import pom_cogmento.LoginPage;
 
 
 /*file:///C:/Users/metri/Eclips_MyWorkSpace/GitCodes/test-output/emailable-report.html*/
-public class Smoke 
+public class CreateCompany 
 {
 	
 	ExcelFileUtility eUtil=new ExcelFileUtility();

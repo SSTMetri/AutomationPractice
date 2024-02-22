@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cogmento.Smoke">
+      <class name="cogmento.CreateContact">
         <methods>
-          <include name="test" invocation-numbers="2"/>
+          <include name="contactCreation"/>
         </methods>
-      </class> <!-- cogmento.Smoke -->
+      </class> <!-- cogmento.CreateContact -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -208,7 +208,7 @@ public class WebDriverUtility
 	public void scrollDownAction(WebDriver driver)
 	{
 		JavascriptExecutor j=(JavascriptExecutor)driver;
-		j.executeScript("window.scrollBy(0,500);","");
+		j.executeScript("window.scrollBy(0,700);","");
 	}
 	/**
 	 * This method will scroll down by 500 units
