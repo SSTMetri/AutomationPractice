@@ -5,7 +5,7 @@
     <classes>
       <class name="cogmento.Smoke">
         <methods>
-          <include name="test"/>
+          <include name="test" invocation-numbers="2"/>
         </methods>
       </class> <!-- cogmento.Smoke -->
     </classes>

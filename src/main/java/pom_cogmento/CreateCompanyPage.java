@@ -162,6 +162,12 @@ public class CreateCompanyPage extends WebDriverUtility {
 //	@FindBy(xpath="")
 //	private WebElement sourceDropDown;
 	
+	@FindBy(xpath="//i[@class='save icon']")
+	private WebElement saveButoom;
+	
+	@FindBy(xpath="//button[normalize-space()='Cancel']")
+	private WebElement cancelButtom;
+	
 	public CreateCompanyPage(WebDriver driver) {
 		PageFactory.initElements(driver,this);
 	}
@@ -440,6 +446,8 @@ public class CreateCompanyPage extends WebDriverUtility {
 		identifier.sendKeys(identiy);
 		
 		vatNuberTextField.sendKeys(vatNum);
+		
+		saveButoom.click();
 		
 		
 		
