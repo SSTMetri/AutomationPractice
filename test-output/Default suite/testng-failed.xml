@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cogmento.CreateContact">
+      <class name="cogmento.CreateTask">
         <methods>
-          <include name="contactCreation"/>
+          <include name="createTaskTest"/>
         </methods>
-      </class> <!-- cogmento.CreateContact -->
+      </class> <!-- cogmento.CreateTask -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

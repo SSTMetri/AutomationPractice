@@ -117,7 +117,7 @@ public class CreateContactPage
 	@FindBy(xpath="//input[@placeholder='Post Code']")
 	private WebElement postCodeTextField;
 	
-	@FindBy(xpath="//div[@name='country']")
+	@FindBy(xpath="//div[@name='country']//input[@type='text']")
 	private WebElement sendCountryText;
 	
 	@FindBy(xpath="//div[@class='visible menu transition']//div//span")
@@ -443,14 +443,14 @@ public class CreateContactPage
 	public void createContactPageFillDetails(String position,String dept,String identifier,String dateDob
 			,String giveMonth,String giveYear,String country) {
 		
-//		sendCountryText.sendKeys(country);
-//		for(WebElement ele:countriesList) {
-//			String countryName=ele.getText();
-//			if(countryName.equalsIgnoreCase(country)) {
-//				ele.click();
-//			}
-//		}
-//		
+		sendCountryText.sendKeys(country);
+		for(WebElement ele:countriesList) {
+			String countryName=ele.getText();
+			if(countryName.equalsIgnoreCase(country)) {
+				ele.click();
+			}
+		}
+//
 //		phoneSendKey.sendKeys(country);
 //		for(WebElement ele:phoneCountriesList) {
 //			String countryPhone = ele.getText();

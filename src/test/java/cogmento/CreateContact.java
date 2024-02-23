@@ -1,5 +1,6 @@
 package cogmento;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -34,8 +35,6 @@ public class CreateContact
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		driver.get("https://ui.cogmento.com/?lang=en-GB");
 		
-		
-		
 		String email="soubhagyasm7073@gmail.com";
 		String password="Soubhagya";
 		
@@ -68,20 +67,8 @@ public class CreateContact
 				country,phoneNum,homeNum);
 		wUtil.scrollDownAction(driver);
 		
-//		WebElement element = driver.findElement(By.xpath("//div[@name='country']"));
-//		JavascriptExecutor executor = (JavascriptExecutor) driver;
-//		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-
 		cContactPage.createContactPageFillDetails(position,dept,identifier,dateDob,giveMonth,giveYear,country);
-		
-		
 		driver.close();
 		
-	
-		
-		
-		
-		
 	}
-
 }

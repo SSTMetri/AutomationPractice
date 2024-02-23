@@ -19,11 +19,11 @@ public class HomePage
 	@FindBy(xpath="(//i[@class='plus inverted icon'])[1]")
 	private WebElement addCalenderButton;
 	
-//	@FindBy(xpath="")
-//	private WebElement ;
+	@FindBy(xpath="(//i[@aria-hidden='true'])[4]")
+	private WebElement createDealButton;
 //	
-//	@FindBy(xpath="")
-//	private WebElement ;
+	@FindBy(xpath="(//button[@class='ui mini basic icon button'])[5]")
+	private WebElement createTaskElement;
 	
 	public HomePage(WebDriver driver) {
 		PageFactory.initElements(driver,this);
@@ -44,7 +44,14 @@ public class HomePage
 	public WebElement getAddCalenderButton() {
 		return addCalenderButton;
 	}
-	
-	
+
+	public WebElement getCreateDealButton() {
+		return createDealButton;
+	}
+
+	public WebElement getCreateTaskElement() {
+		return createTaskElement;
+	}
+
 
 }

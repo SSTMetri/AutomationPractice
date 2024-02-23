@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-22T20:22:17 IST" name="Default suite" finished-at="2024-02-22T20:22:34 IST" duration-ms="16613">
+  <suite started-at="2024-02-23T15:17:49 IST" name="Default suite" finished-at="2024-02-23T15:17:59 IST" duration-ms="10336">
     <groups>
     </groups>
-    <test started-at="2024-02-22T20:22:17 IST" name="Default test" finished-at="2024-02-22T20:22:34 IST" duration-ms="16613">
-      <class name="cogmento.CreateContact">
-        <test-method signature="contactCreation()[pri:0, instance:cogmento.CreateContact@1cbbffcd]" started-at="2024-02-22T20:22:17 IST" name="contactCreation" finished-at="2024-02-22T20:22:34 IST" duration-ms="16583" status="PASS">
+    <test started-at="2024-02-23T15:17:49 IST" name="Default test" finished-at="2024-02-23T15:17:59 IST" duration-ms="10336">
+      <class name="cogmento.CreateTask">
+        <test-method signature="createTaskTest()[pri:0, instance:cogmento.CreateTask@3daa422a]" started-at="2024-02-23T15:17:49 IST" name="createTaskTest" finished-at="2024-02-23T15:17:59 IST" duration-ms="10314" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- contactCreation -->
-      </class> <!-- cogmento.CreateContact -->
+        </test-method> <!-- createTaskTest -->
+      </class> <!-- cogmento.CreateTask -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
