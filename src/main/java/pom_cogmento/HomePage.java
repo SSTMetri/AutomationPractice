@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage 
 {
-	@FindBy(xpath="//a[@href='/home']")
+	@FindBy(xpath="//span[text()='Home']")
 	private WebElement homeElement;
 		
 	@FindBy(xpath="(//i[@class='plus inverted icon'])[3]")

@@ -1,33 +1,26 @@
 package cogmento;
 
-import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.mysql.cj.jdbc.Driver;
-
-import genericUtilityNew.BaseClass;
 import genericUtilityNew.ExcelFileUtility;
 import genericUtilityNew.JavaUtility;
 import genericUtilityNew.WebDriverUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pom_cogmento.CreateCompanyPage;
+import pom_cogmento.CreateContactPage;
+import pom_cogmento.HomePage;
 import pom_cogmento.LoginPage;
 
-
-/*file:///C:/Users/metri/Eclips_MyWorkSpace/GitCodes/test-output/emailable-report.html*/
-public class CreateCompany 
+public class CreateCompanyAndConact 
 {
-	
+
 	ExcelFileUtility eUtil=new ExcelFileUtility();
 
 	@Test(dataProvider="getData")
@@ -39,38 +32,18 @@ public class CreateCompany
 			,String homeEmail,String description,String industry,String symbol
 			,String priority,String category,String identifier,String vatNum
 			) {
-		/*
-		String email="soubhagyasm7073@gmail.com";
-		String password="Soubhagya";
-		String comapanyName="Manufactureing comapny";
-		String webSite="www.dummyProject";
-		String country="india";
-		String number="9988556622";
-		String homeNumber="7418529636";
-		String tag="give Tag";
-		String linkedINURL="https://www.linkedin.com/in/soubhagya";
-		String facebookURL="https//facebook";
-		String tritterURL="https//";
-		String tictokURL="https//";
-		String instagramURL="https//";
-		String socialTwi="Twitter";
 		
-		String socialInst="Instagram";
-		String socialL="LinkedIn";
-		String socialTic="Tictok";
-		String socialF="Facebook";
-		String numOfEmp="5";
-		String revenue="6545";
-		String statusSelect="Active";
-		String address="my home",city="Vijayapura",state="Karnataka",postalCode="586103";
-		String homeEmail="Home@gmail.com";
-		String description="This is companies description";
-		String industry="IT",symbol="XYZ";
-		String priority="Low";
-		String category="Client";
-		String identifier="abc";
-		String vatNum="45d1g5u3i2n5";
-		*/
+		String firstName="soubhagya",lastName="Metri",middleName="S",
+		companyName="Manufactureing comapny",personalEmail="xyz@gmail.com",
+		giveStatus="Active",givenCategory="Lead",
+		description2="This is my contact ineformation",socialMName="Instagram",
+		socialChannelUrl="https://instagram.com",address2="Plot no. 105, Aacharya ravishekhar colony",
+		stateOrCountry="Karnataka",
+		postCOde="586005",
+		phoneNum="8855669922",homeNum="85214852145";
+		
+		String position="Engineer",dept="Software Development",
+		identifier2="ABC",dateDob="30",giveMonth="Jan",giveYear="1998";
 		
 		
 		WebDriverManager.firefoxdriver().setup();
@@ -80,7 +53,9 @@ public class CreateCompany
 		JavaUtility jUtil=new JavaUtility();
 		int random = jUtil.getRandomNumber();
 		LoginPage lPage=new LoginPage(driver);
+		HomePage hPage=new HomePage(driver);
 		CreateCompanyPage createCompanyPage=new CreateCompanyPage(driver);
+		CreateContactPage cContactPage=new CreateContactPage(driver);
 		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
@@ -89,7 +64,7 @@ public class CreateCompany
 		lPage.login(email, password);
 
 		//Move to home element
-		WebElement homeEle = driver.findElement(By.xpath("//a[@href='/home']"));
+		WebElement homeEle = hPage.getHomeElement();
 		wUtil.mouseHoverAction(driver, homeEle);
 		
 		//Click on add new companies
@@ -102,8 +77,8 @@ public class CreateCompany
 		wUtil.mouseHoverAction(driver, moveToRandomElement);
 		
 		//Fill all the details of company
-		
-		createCompanyPage.createCompany(comapanyName+random,webSite,country,number,homeNumber
+		String companyNameNew=comapanyName+random;
+		createCompanyPage.createCompany(companyNameNew,webSite,country,number,homeNumber
 				,socialL,linkedINURL,numOfEmp,revenue,address,city,state,postalCode
 				,email,homeEmail,description,industry
 				,symbol
@@ -113,6 +88,24 @@ public class CreateCompany
 		
 		createCompanyPage.bottomFieldsOfCompany(statusSelect,category,identifier,vatNum);
 		
+		
+		//Create contact
+		wUtil.mouseHoverAction(driver,homeEle);
+		
+		WebElement createConatc = hPage.getCreateContactButton();
+		createConatc.click();
+		
+		WebElement randomEle = cContactPage.getRandomElement();
+		wUtil.mouseHoverAction(driver, randomEle);
+		
+		cContactPage.createContact(firstName+random,lastName,middleName,email
+				,companyNameNew,personalEmail,giveStatus,givenCategory,description2
+				,socialMName,socialChannelUrl,address2,city,stateOrCountry,postCOde,
+				country,phoneNum,homeNum);
+		wUtil.scrollDownAction(driver);
+		
+		cContactPage.createContactPageFillDetails(position,dept,identifier2,dateDob,giveMonth,giveYear,country);
+		driver.close();
 
 		
 		driver.close();
@@ -123,6 +116,5 @@ public class CreateCompany
 	public Object[][] getData() throws Exception {
 		return eUtil.readMultipleData("CreateCompany");
 	}
-	
 
 }

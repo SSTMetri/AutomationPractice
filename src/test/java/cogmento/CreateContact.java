@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 import genericUtilityNew.ExcelFileUtility;
+import genericUtilityNew.JavaUtility;
 import genericUtilityNew.WebDriverUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pom_cogmento.CreateCompanyPage;
@@ -30,6 +31,8 @@ public class CreateContact
 		LoginPage lPage=new LoginPage(driver);
 		HomePage hPage=new HomePage(driver);
 		CreateContactPage cContactPage=new CreateContactPage(driver);
+		JavaUtility jUtil=new JavaUtility();
+		int random = jUtil.getRandomNumber();
 		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
@@ -61,7 +64,7 @@ public class CreateContact
 		WebElement randomEle = cContactPage.getRandomElement();
 		wUtil.mouseHoverAction(driver, randomEle);
 		
-		cContactPage.createContact(firstName,lastName,middleName,email
+		cContactPage.createContact(firstName+random,lastName,middleName,email
 				,companyName,personalEmail,giveStatus,givenCategory,description
 				,socialMName,socialChannelUrl,address,city,stateOrCountry,postCOde,
 				country,phoneNum,homeNum);
