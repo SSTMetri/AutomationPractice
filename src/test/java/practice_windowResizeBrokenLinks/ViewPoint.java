@@ -1,10 +1,12 @@
-package broken_links;
+package practice_windowResizeBrokenLinks;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.safari.SafariDriver.WindowType;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -22,6 +24,7 @@ public class ViewPoint
 			Dimension d=new Dimension(arr[i][0],arr[i][1]);
 			driver.manage().window().setSize(d);
 		}
+//		((SafariDriver) driver.manage()).newWindow(WindowType.TAB);
 	}
 
 }
